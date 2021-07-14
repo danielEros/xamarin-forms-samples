@@ -7,6 +7,8 @@ using TouchTracking;
 
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+using SkiaSharpFormsDemos.Basics;
+
 
 namespace SkiaSharpFormsDemos.Bitmaps
 {
@@ -14,6 +16,8 @@ namespace SkiaSharpFormsDemos.Bitmaps
     {
         Dictionary<long, SKPath> inProgressPaths = new Dictionary<long, SKPath>();
         List<SKPath> completedPaths = new List<SKPath>();
+
+        SKBitmap myBitmap;
 
         SKPaint paint = new SKPaint
         {
@@ -28,6 +32,9 @@ namespace SkiaSharpFormsDemos.Bitmaps
 
         public FingerPaintSavePage ()
         {
+            myBitmap = BitmapExtensions.LoadBitmapResource ( GetType () ,
+                "SkiaSharpFormsDemos.Media.Pinceszinti_alaprajz.png" );
+
             InitializeComponent ();
         }
 
@@ -37,7 +44,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
 
-            // Create bitmap the size of the display surface
+            /*// Create bitmap the size of the display surface
             if (saveBitmap == null)
             {
                 saveBitmap = new SKBitmap(info.Width, info.Height);
@@ -57,9 +64,41 @@ namespace SkiaSharpFormsDemos.Bitmaps
                 saveBitmap = newBitmap;
             }
 
+
+
+            */
+
+
+            
+
+
             // Render the bitmap
             canvas.Clear();
-            canvas.DrawBitmap(saveBitmap, 0, 0);
+            //CustomSKCanvas customSKCanvas
+
+            //canvas.DrawBitmap(saveBitmap, 0, 0);
+            canvas.DrawBitmap ( myBitmap , /*info.Rect*/SKRect.Create ( 1500 , 1500 ) , BitmapStretch.None );
+
+            using ( SKPaint paint = new SKPaint () )
+            {
+                paint.Style = SKPaintStyle.Stroke;
+                paint.Color = SKColors.Black;
+                paint.StrokeWidth = 24;
+                paint.StrokeCap = SKStrokeCap.Round;
+
+                using ( SKPath path = new SKPath () )
+                {
+                    path.MoveTo ( 380 , 390 );
+                    path.CubicTo ( 560 , 390 , 560 , 280 , 500 , 280 );
+
+                    path.MoveTo ( 320 , 390 );
+                    path.CubicTo ( 140 , 390 , 140 , 280 , 200 , 280 );
+
+                    canvas.DrawPath ( path , paint );
+
+                    canvas.DrawCircle ( 5 , 5 , 5 , paint );
+                }
+            }
         }
 
         void OnTouchEffectAction(object sender, TouchActionEventArgs args)
@@ -112,22 +151,22 @@ namespace SkiaSharpFormsDemos.Bitmaps
 
         void UpdateBitmap()
         {
-            using (SKCanvas saveBitmapCanvas = new SKCanvas(saveBitmap))
-            {
-                saveBitmapCanvas.Clear();
+            //using ( SKCanvas saveBitmapCanvas = new SKCanvas ( monkeyBitmap ) )
+            //{
+            //    saveBitmapCanvas.Clear ();
 
-                foreach (SKPath path in completedPaths)
-                {
-                    saveBitmapCanvas.DrawPath(path, paint);
-                }
+            //    foreach ( SKPath path in completedPaths )
+            //    {
+            //        saveBitmapCanvas.DrawPath ( path , paint );
+            //    }
 
-                foreach (SKPath path in inProgressPaths.Values)
-                {
-                    saveBitmapCanvas.DrawPath(path, paint);
-                }
-            }
+            //    foreach ( SKPath path in inProgressPaths.Values )
+            //    {
+            //        saveBitmapCanvas.DrawPath ( path , paint );
+            //    }
+            //}
 
-            canvasView.InvalidateSurface();
+            //canvasView.InvalidateSurface ();
         }
 
         void OnClearButtonClicked(object sender, EventArgs args)
@@ -156,5 +195,6 @@ namespace SkiaSharpFormsDemos.Bitmaps
                 }
             }
         }
+                
     }
 }

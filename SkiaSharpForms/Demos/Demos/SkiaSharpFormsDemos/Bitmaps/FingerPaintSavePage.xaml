@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:tt="clr-namespace:TouchTracking"
+             xmlns:customSkia="clr-namespace:SkiaSharpFormsDemos.Basics"
              x:Class="SkiaSharpFormsDemos.Bitmaps.FingerPaintSavePage"
              Title="Finger Paint Save">
 
     <StackLayout>
-        <Grid BackgroundColor="White"
+        <!--<Grid BackgroundColor="White"
               VerticalOptions="FillAndExpand">
             <skia:SKCanvasView x:Name="canvasView"
                                PaintSurface="OnCanvasViewPaintSurface" />
@@ -15,7 +16,18 @@
                 <tt:TouchEffect Capture="True"
                                 TouchAction="OnTouchEffectAction" />
             </Grid.Effects>
+        </Grid>-->
+
+        <Grid BackgroundColor="White"
+              VerticalOptions="FillAndExpand">
+            <customSkia:CustomSKCanvas x:Name="canvasView"
+                                   PaintSurface="OnCanvasViewPaintSurface" />
+            <Grid.Effects>
+                <tt:TouchEffect Capture="True"
+                                TouchAction="OnTouchEffectAction" />
+            </Grid.Effects>
         </Grid>
+
 
         <Grid>
             <Grid.ColumnDefinitions>

@@ -37,6 +37,8 @@ namespace SkiaSharpFormsDemos.Bitmaps
                         path.CubicTo(140, 390, 140, 280, 200, 280);
 
                         canvas.DrawPath(path, paint);
+
+                        canvas.DrawCircle (5, 5, 5, paint);
                     }
                 }
             }

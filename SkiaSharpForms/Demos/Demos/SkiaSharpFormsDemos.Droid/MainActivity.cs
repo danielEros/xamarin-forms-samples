@@ -5,7 +5,10 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using SkiaSharpFormsDemos.Droid;
+using Xamarin.Forms;
 
+[assembly: Dependency ( typeof ( ViewCoordinateService ) )]
 namespace SkiaSharpFormsDemos.Droid
 {
     [Activity(Label = "SkiaSharpFormsDemos", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

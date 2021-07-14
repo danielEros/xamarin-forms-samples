@@ -11,7 +11,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
     {
         SKBitmap bitmap =
             BitmapExtensions.LoadBitmapResource(typeof(FillRectanglePage),
-                                                "SkiaSharpFormsDemos.Media.Banana.jpg");
+                                                "SkiaSharpFormsDemos.Media.Pinceszinti_alaprajz.png");
         public PosterizePage()
         {
             Title = "Posterize";
