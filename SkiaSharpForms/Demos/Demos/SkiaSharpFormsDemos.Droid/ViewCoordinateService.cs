@@ -22,9 +22,6 @@ namespace SkiaSharpFormsDemos.Droid
             var density = nativeView.Context.Resources.DisplayMetrics.Density;
 
             nativeView.GetLocationOnScreen ( location );
-
-
-            //nativeView.GetLocationInWindow ( location );
             return new System.Drawing.PointF ( location [ 0 ] / density , location [ 1 ] / density );
         }
     }

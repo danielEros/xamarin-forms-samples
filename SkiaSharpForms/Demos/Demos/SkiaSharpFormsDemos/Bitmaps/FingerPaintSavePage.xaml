@@ -19,13 +19,30 @@
         </Grid>-->
 
         <Grid BackgroundColor="White"
+              x:Name="myGrid"
               VerticalOptions="FillAndExpand">
-            <customSkia:CustomSKCanvas x:Name="canvasView"
-                                   PaintSurface="OnCanvasViewPaintSurface" />
+
+            <!--For Solution 1 & 2-->
+            <skia:SKCanvasView x:Name="canvasView"
+                                   PaintSurface="OnCanvasViewPaintSurface" >
+            </skia:SKCanvasView>
             <Grid.Effects>
                 <tt:TouchEffect Capture="True"
                                 TouchAction="OnTouchEffectAction" />
             </Grid.Effects>
+
+            <!--End For Solution 1 & 2-->
+            
+            <!--For Solution 3-->
+            <!--<customSkia:CustomSKCanvas x:Name="canvasView"
+                            PaintSurface="OnCanvasViewPaintSurface">
+                <customSkia:CustomSKCanvas.GestureRecognizers>
+                    <TapGestureRecognizer
+                        NumberOfTapsRequired="2" />
+                </customSkia:CustomSKCanvas.GestureRecognizers>
+            </customSkia:CustomSKCanvas>-->
+            <!--End For Solution 3-->
+           
         </Grid>
 
 
@@ -36,7 +53,7 @@
             </Grid.ColumnDefinitions>
         </Grid>
 
-        <Button Text="Clear"
+        <!--<Button Text="Clear"
                 Grid.Row="0"
                 Margin="50, 5"
                 Clicked="OnClearButtonClicked" />
@@ -44,8 +61,7 @@
         <Button Text="Save"
                 Grid.Row="1"
                 Margin="50, 5"
-                Clicked="OnSaveButtonClicked" />
+                Clicked="OnSaveButtonClicked" />-->
 
     </StackLayout>
 </ContentPage>
-    

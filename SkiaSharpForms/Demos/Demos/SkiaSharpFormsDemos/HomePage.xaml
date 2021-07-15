@@ -5,40 +5,30 @@
                     x:Class="SkiaSharpFormsDemos.HomePage"
                     Title="SkiaSharp Forms Demos"
                     Padding="10">
-    <TableView Intent="Menu">
-        <TableRoot>
-            <TableSection>
-                <TextCell Text="SkiaSharp Drawing Basics"
-                          Detail="Learn basic graphics concepts and coordinates"
-                          Command="{Binding NavigateCommand}"
-                          CommandParameter="{x:Type local:Basics.BasicsHomePage}" />
+    <ScrollView>
+        <StackLayout>
 
-                <TextCell Text="SkiaSharp Lines and Path"
-                          Detail="Use SkiaSharp to draw lines and graphics paths"
-                          Command="{Binding NavigateCommand}"
-                          CommandParameter="{x:Type local:Paths.PathsHomePage}" />
+            <Label>
+                We came to 3 solutions, none of them can do all the functions we need. Please comment/uncomment the parts in FingerPaintSavePage.xaml andFingerPaintSavePage.xaml.cs to check these solutions. Our aim is to be able to zoom and move the bitmap along with the drawings on it, and we should know the tapped postion in the proper event handler
+            </Label>
 
-                <TextCell Text="SkiaSharp Transforms"
-                          Detail="Learn about transforms for modifying graphics"
-                          Command="{Binding NavigateCommand}"
-                          CommandParameter="{x:Type local:Transforms.TransformsHomePage}" />
+            <TableView Intent="Menu">
 
-                <TextCell Text="SkiaSharp Curves and Paths"
-                          Detail="Discover how to draw curves and use path features"
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="This is what we could get so far."
                           Command="{Binding NavigateCommand}"
-                          CommandParameter="{x:Type local:Curves.CurvesHomePage}" />
+                          CommandParameter="{x:Type local:Bitmaps.FingerPaintSavePage}" />
 
-                <TextCell Text="SkiaSharp Bitmaps"
-                          Detail="Create, draw on, save, and animate bitmaps"                          
-                          Command="{Binding NavigateCommand}"
-                          CommandParameter="{x:Type local:Bitmaps.BitmapsHomePage}" />
 
-                <TextCell Text="SkiaSharp Effects"
-                          Detail="Use gradients, bitmap tiling, blur, and drop shadow"
-                          Command="{Binding NavigateCommand}"
-                          CommandParameter="{x:Type local:Effects.EffectsHomePage}" />
 
-            </TableSection>
-        </TableRoot>
-    </TableView>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+
+            
+
+        </StackLayout>
+    </ScrollView>
+
 </local:HomeBasePage>
